@@ -1,0 +1,32 @@
+name: Run Tests
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10.1
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.10.1
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Test
+      run: |
+        make test
+    - name: Mypy
+      run: |
+        make mypy
+    - name: Black
+      run: |
+        make black
+    - name: Isort
+      run: |
+        make isort
+    - name: Flask8
+      run: |
+        make flask8
