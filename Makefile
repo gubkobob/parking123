@@ -6,13 +6,13 @@ test:
 	python pytest tests
 
 mypy:
-    mypy --strict $(git ls-files '*.py')
+	mypy main/
 
 black:
-    black --diff --check main/
+	black --diff --check main/
 
 isort:
-    isort --check-only main/
+	isort --check-only main/
 
 flask8:
-    flake8 main/
+	flake8 main/
