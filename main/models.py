@@ -19,7 +19,6 @@ class Client(db.Model):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
 
-
 class Parking(db.Model):
     __tablename__ = "parkings"
 
