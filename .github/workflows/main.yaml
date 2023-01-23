@@ -19,9 +19,6 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-    - name: Test
-      run: |
-        make test
     - name: Mypy
       run: |
         make mypy
@@ -34,3 +31,6 @@ jobs:
     - name: Flask8
       run: |
         make flask8
+    - name: Test
+      run: |
+        make test
