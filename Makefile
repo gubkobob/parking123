@@ -3,7 +3,7 @@ install:
 		pip install -r requirements.txt
 
 test:
-	python pytest tests
+	pytest tests
 
 mypy:
 	mypy main/
