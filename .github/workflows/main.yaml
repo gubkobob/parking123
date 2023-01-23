@@ -6,7 +6,7 @@ on:
       - master
 jobs:
   build:
-    runs-on: python:3.7
+    runs-on: python:3.10.9
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.10.9
