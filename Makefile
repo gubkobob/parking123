@@ -7,13 +7,13 @@ test:
 	python pytest tests
 
 mypy:
-    python mypy main/
+    - mypy main/
 
 black:
-    python black --diff --check main/
+    - black --diff --check main/
 
 isort:
-    python isort --check-only main/
+    - isort --check-only main/
 
 flask8:
-    python flake8 main/
+    - flake8 main/
