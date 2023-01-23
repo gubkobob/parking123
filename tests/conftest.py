@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 
 import pytest
-from flask import template_rendered
 
 from parking.main.app import create_app
 from parking.main.app import db as _db
