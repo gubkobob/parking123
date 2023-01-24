@@ -19,12 +19,12 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-    - name: Black
-      run: |
-        make black
     - name: Isort
       run: |
         make isort
+    - name: Black
+      run: |
+        make black
     - name: Flask8
       run: |
         make flask8
