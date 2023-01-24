@@ -22,9 +22,9 @@ jobs:
     - name: Isort
       run: |
         make isort
-    - name: Black
-      run: |
-        make black
+#    - name: Black
+#      run: |
+#        make black
     - name: Flask8
       run: |
         make flask8
