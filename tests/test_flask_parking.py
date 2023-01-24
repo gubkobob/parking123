@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from parking.main.models import Parking
+from main.models import Parking
 
 
 def test_math_route(client) -> None:
