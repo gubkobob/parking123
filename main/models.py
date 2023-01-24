@@ -43,12 +43,12 @@ class ParkingLog(db.Model):
     __tablename__ = "parking_log"
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
-    client_id = db.Column(db.Integer,
-                          db.ForeignKey("clients.id"),
-                          nullable=False)
-    parking_id = db.Column(db.Integer,
-                           db.ForeignKey("parkings.id"),
-                           nullable=False)
+    client_id = db.Column(
+        db.Integer, db.ForeignKey("clients.id"), nullable=False
+    )
+    parking_id = db.Column(
+        db.Integer, db.ForeignKey("parkings.id"), nullable=False
+    )
     time_in = db.Column(db.DateTime, nullable=False)
     time_out = db.Column(db.DateTime, nullable=False)
 
@@ -62,9 +62,9 @@ class ParkingLog(db.Model):
 class ClientParking(db.Model):
     __tablename__ = "clientparkings"
     __table_args__ = (
-        db.UniqueConstraint("client_id",
-                            "parking_id",
-                            name="_unique_client_parking"),
+        db.UniqueConstraint(
+            "client_id", "parking_id", name="_unique_client_parking"
+        ),
     )
 
     id = db.Column(db.Integer, primary_key=True)

@@ -40,8 +40,10 @@ def create_app():
         car_number = request.form.get("car_number", type=str)
 
         new_client = Client(
-            name=name, surname=surname,
-            credit_card=credit_card, car_number=car_number
+            name=name,
+            surname=surname,
+            credit_card=credit_card,
+            car_number=car_number,
         )
 
         db.session.add(new_client)
@@ -56,7 +58,8 @@ def create_app():
         opened = request.form.get("opened", type=bool)
         count_places = request.form.get("count_places", type=int)
         count_available_places = request.form.get(
-            "count_available_places", type=int)
+            "count_available_places", type=int
+        )
 
         new_parking = Parking(
             address=address,
@@ -109,7 +112,7 @@ def create_app():
             new_client_parking = ClientParking(
                 client_id=client_id,
                 parking_id=parking_id,
-                time_in=datetime.now()
+                time_in=datetime.now(),
             )
 
             # try:

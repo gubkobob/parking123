@@ -9,7 +9,7 @@ mypy:
 	mypy --check-untyped-defs main/
 
 black:
-	black --diff --check main/
+	black --line-length 79 --check --diff main/
 
 isort:
 	isort --check-only main/
