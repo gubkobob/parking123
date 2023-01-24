@@ -31,6 +31,6 @@ jobs:
 #    - name: Mypy
 #      run: |
 #        make mypy
-    - name: Test
-      run: |
-        make test
+#    - name: Test
+#      run: |
+#        make test

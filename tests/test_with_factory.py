@@ -1,4 +1,4 @@
-from main.models import Client, Parking
+from parking.main.models import Client, Parking
 
 from .factories import ClientFactory, ParkingFactory
 
