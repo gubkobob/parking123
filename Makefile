@@ -6,7 +6,7 @@ test:
 	pytest tests
 
 mypy:
-	mypy main/
+	mypy --check-untyped-defs main/
 
 black:
 	black --diff --check main/

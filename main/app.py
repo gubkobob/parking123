@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -105,12 +105,13 @@ def create_app():
                 client_id=client_id, parking_id=parking_id, time_in=datetime.now()
             )
 
-            try:
-                db.session.add(new_client_parking)
-                parking.count_available_places -= 1
-                db.session.commit()
-            except:
-                return "Ошибка: уже на парковке", 404
+            # try:
+            db.session.add(new_client_parking)
+            parking.count_available_places -= 1
+            db.session.commit()
+            # except Exception:
+            #     return "Ошибка: уже на парковке", 404
+
             return "", 201
         else:
             return "Невозможно заехать на парковку", 404

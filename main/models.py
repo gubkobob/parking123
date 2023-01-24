@@ -2,6 +2,10 @@ from typing import Any, Dict
 
 from .app import db
 
+# from flask_sqlalchemy.model import DefaultMeta
+#
+# BaseModel: DefaultMeta = db.Model
+
 
 class Client(db.Model):
     __tablename__ = "clients"
