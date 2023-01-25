@@ -2,7 +2,6 @@ import json
 from datetime import datetime, timedelta
 
 import pytest
-
 from parking123.main.models import Parking
 
 

@@ -2,7 +2,6 @@ import random
 
 import factory
 import factory.fuzzy as fuzzy
-
 from parking123.main.app import db
 from parking123.main.models import Client, Parking
 
