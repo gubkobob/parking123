@@ -25,9 +25,9 @@ jobs:
     - name: Black
       run: |
         make black
-    - name: Flask8
+    - name: Flake8
       run: |
-        make flask8
+        make flake8
     - name: Mypy
       run: |
         make mypy

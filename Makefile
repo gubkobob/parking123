@@ -14,5 +14,5 @@ black:
 isort:
 	isort --check-only main/
 
-flask8:
+flake8:
 	flake8 main/
