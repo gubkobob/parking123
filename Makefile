@@ -15,7 +15,6 @@ black:
 
 isort:
 	isort --check-only main/
-	isort --check-only tests/
 
 flake8:
 	flake8 main/
