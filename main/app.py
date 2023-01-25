@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -40,7 +40,10 @@ def create_app():
         car_number = request.form.get("car_number", type=str)
 
         new_client = Client(
-            name=name, surname=surname, credit_card=credit_card, car_number=car_number
+            name=name,
+            surname=surname,
+            credit_card=credit_card,
+            car_number=car_number,
         )
 
         db.session.add(new_client)
@@ -54,7 +57,9 @@ def create_app():
         address = request.form.get("address", type=str)
         opened = request.form.get("opened", type=bool)
         count_places = request.form.get("count_places", type=int)
-        count_available_places = request.form.get("count_available_places", type=int)
+        count_available_places = request.form.get(
+            "count_available_places", type=int
+        )
 
         new_parking = Parking(
             address=address,
@@ -85,8 +90,11 @@ def create_app():
     @app.route("/clients/<int:client_id>", methods=["GET"])
     def get_client_handler(client_id: int):
         """Получение клиента по ид"""
-        client: Client = db.session.query(Client).get(client_id)
-        return jsonify(client.to_json()), 200
+        client: Client | None = db.session.query(Client).get(client_id)
+        if client:
+            return jsonify(client.to_json()), 200
+        else:
+            return "Нет клиента с таким id", 404
 
     @app.route("/client_parkings", methods=["POST"])
     def post_client_parking():
@@ -102,15 +110,18 @@ def create_app():
             and (parking.count_available_places > 0)
         ):
             new_client_parking = ClientParking(
-                client_id=client_id, parking_id=parking_id, time_in=datetime.now()
+                client_id=client_id,
+                parking_id=parking_id,
+                time_in=datetime.now(),
             )
 
-            try:
-                db.session.add(new_client_parking)
-                parking.count_available_places -= 1
-                db.session.commit()
-            except:
-                return "Ошибка: уже на парковке", 404
+            # try:
+            db.session.add(new_client_parking)
+            parking.count_available_places -= 1
+            db.session.commit()
+            # except Exception:
+            #     return "Ошибка: уже на парковке", 404
+
             return "", 201
         else:
             return "Невозможно заехать на парковку", 404

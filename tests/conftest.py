@@ -1,10 +1,9 @@
 from datetime import datetime, timedelta
 
 import pytest
-
-from parking.main.app import create_app
-from parking.main.app import db as _db
-from parking.main.models import Client, ClientParking, Parking
+from parking123.main.app import create_app
+from parking123.main.app import db as _db
+from parking123.main.models import Client, ClientParking, Parking
 
 
 @pytest.fixture
@@ -23,7 +22,9 @@ def app():
             credit_card="1234-5678-1234-9876",
             car_number="o777oo77",
         )
-        client2 = Client(id=2, name="name2", surname="surname2", car_number="o777ee77")
+        client2 = Client(
+            id=2, name="name2", surname="surname2", car_number="o777ee77"
+        )
         parking1 = Parking(
             id=1,
             opened=True,
@@ -39,10 +40,16 @@ def app():
             count_available_places=55,
         )
         client_parking1 = ClientParking(
-            id=1, time_in=datetime.now() - timedelta(hours=2), client_id=1, parking_id=1
+            id=1,
+            time_in=datetime.now() - timedelta(hours=2),
+            client_id=1,
+            parking_id=1,
         )
         client_parking2 = ClientParking(
-            id=2, time_in=datetime.now() + timedelta(hours=1), client_id=2, parking_id=2
+            id=2,
+            time_in=datetime.now() + timedelta(hours=1),
+            client_id=2,
+            parking_id=2,
         )
 
         _db.session.add(client1)

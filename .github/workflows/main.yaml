@@ -19,18 +19,18 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-    - name: Test
-      run: |
-        make test
-    - name: Mypy
-      run: |
-        make mypy
     - name: Black
       run: |
         make black
     - name: Isort
       run: |
         make isort
-    - name: Flask8
+    - name: Flake8
       run: |
-        make flask8
+        make flake8
+    - name: Test
+      run: |
+        make test
+    - name: Mypy
+      run: |
+        make mypy

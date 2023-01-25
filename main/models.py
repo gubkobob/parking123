@@ -3,7 +3,7 @@ from typing import Any, Dict
 from .app import db
 
 
-class Client(db.Model):
+class Client(db.Model):  # type: ignore
     __tablename__ = "clients"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -19,7 +19,7 @@ class Client(db.Model):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
 
-class Parking(db.Model):
+class Parking(db.Model):  # type: ignore
     __tablename__ = "parkings"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -35,26 +35,32 @@ class Parking(db.Model):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
 
-class ParkingLog(db.Model):
+class ParkingLog(db.Model):  # type: ignore
     __tablename__ = "parking_log"
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
-    client_id = db.Column(db.Integer, db.ForeignKey("clients.id"), nullable=False)
-    parking_id = db.Column(db.Integer, db.ForeignKey("parkings.id"), nullable=False)
+    client_id = db.Column(
+        db.Integer, db.ForeignKey("clients.id"), nullable=False
+    )
+    parking_id = db.Column(
+        db.Integer, db.ForeignKey("parkings.id"), nullable=False
+    )
     time_in = db.Column(db.DateTime, nullable=False)
     time_out = db.Column(db.DateTime, nullable=False)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Parking on {self.address}"
 
     def to_json(self) -> Dict[str, Any]:
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
 
-class ClientParking(db.Model):
+class ClientParking(db.Model):  # type: ignore
     __tablename__ = "clientparkings"
     __table_args__ = (
-        db.UniqueConstraint("client_id", "parking_id", name="_unique_client_parking"),
+        db.UniqueConstraint(
+            "client_id", "parking_id", name="_unique_client_parking"
+        ),
     )
 
     id = db.Column(db.Integer, primary_key=True)
@@ -65,7 +71,7 @@ class ClientParking(db.Model):
     client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
     parking_id = db.Column(db.Integer, db.ForeignKey("parkings.id"))
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Машина клиента {self.client} на парковке  {self.parking}"
 
     def to_json(self) -> Dict[str, Any]:

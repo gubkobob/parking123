@@ -6,13 +6,16 @@ test:
 	pytest tests
 
 mypy:
-	mypy main/
+	mypy --check-untyped-defs main/
+	mypy --check-untyped-defs tests/
 
 black:
-	black --diff --check main/
+	black --line-length 79 --check --diff main/
+	black --line-length 79 --check --diff tests/
 
 isort:
 	isort --check-only main/
 
-flask8:
+flake8:
 	flake8 main/
+	flake8 tests/

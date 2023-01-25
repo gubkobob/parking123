@@ -2,8 +2,7 @@ import json
 from datetime import datetime, timedelta
 
 import pytest
-
-from parking.main.models import Client, ClientParking, Parking
+from parking123.main.models import Parking
 
 
 def test_math_route(client) -> None:
