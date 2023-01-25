@@ -7,3 +7,4 @@ mypy==0.931
 pytest==7.0.1
 Flask==2.2.2
 sqlalchemy-stubs==0.4
+flask-sqlalchemy-stubs==0.2

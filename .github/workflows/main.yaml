@@ -28,9 +28,9 @@ jobs:
     - name: Flask8
       run: |
         make flask8
-#    - name: Mypy
-#      run: |
-#        make mypy
+    - name: Mypy
+      run: |
+        make mypy
     - name: Test
       run: |
         make test
