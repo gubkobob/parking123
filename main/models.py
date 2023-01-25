@@ -1,9 +1,10 @@
 from __future__ import annotations
+
 from typing import Any, Dict
 
-from .app import db
-
 from flask_sqlalchemy.model import DefaultMeta
+
+from .app import db
 
 BaseModel: DefaultMeta = db.Model
 
