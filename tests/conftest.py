@@ -2,9 +2,9 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from parking.main.app import create_app
-from parking.main.app import db as _db
-from parking.main.models import Client, ClientParking, Parking
+from parking123.main.app import create_app
+from parking123.main.app import db as _db
+from parking123.main.models import Client, ClientParking, Parking
 
 
 @pytest.fixture
