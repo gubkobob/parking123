@@ -9,3 +9,5 @@ Flask==2.2.2
 sqlalchemy-stubs==0.4
 flask-sqlalchemy-stubs==0.2
 Flask-SQLAlchemy==3.0.2
+factory-boy==3.2.1
+Faker==16.6.0
